@@ -1,0 +1,15 @@
+name: pma
+request:
+  method: GET
+  path:
+    - /pma/index.php
+    - /phpmyadmin/index.php
+    - /PhpMyAdmin/index.php
+  headers: 
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36
+    Referer: http://www.baidu.com/
+    Accept-Language: en
+  timeout: 3
+  allow_redirects: true
+filter_expr: aw.lang == "php" || aw.lang == ""
+verify_expr: response.body.bcontains(b"<title>phpMyAdmin</title>")
