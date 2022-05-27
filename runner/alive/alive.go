@@ -150,5 +150,5 @@ func aliveScan(targetMgr *targetloader.TargetMgr, options *config.Config, args .
 	}
 	swg.Wait()
 	fmt.Println()
-	connect.Sylas.Close() //关闭数据库连接
+	//connect.Sylas.Close() //关闭数据库连接
 }
