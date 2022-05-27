@@ -1,0 +1,36 @@
+- webserver: Nginx
+  expression: response.headers["Server"].icontains("Nginx") || response.body.bcontains(b"<center>nginx</center>")
+
+- webserver: Apache
+  expression: response.headers["Server"].icontains("Apache/")
+
+- webserver: Tomcat
+  expression: response.headers["Server"].icontains("Tomcat") || response.headers["Server"].icontains("Apache-Coyote")
+
+- application: discuz
+  expression: response.body.bcontains(b"content=\"Discuz! X\"")
+
+- webserver: IIS
+  os: Windows
+  expression: response.headers["Server"].icontains("Microsoft-IIS/")
+
+- application: SeeyonOA
+  expression: response.body.bcontains(b"/seeyon/common/")
+
+- application: weaver-ecology
+  expression: response.body.bcontains(b"/wui/theme/ecology")
+
+- application: weaver-emobile
+  expression: response.body.bcontains(b"weaver,e-mobile")
+
+- application: weaver-ebridge
+  expression: response.body.bcontains(b"e-Bridge,http://wx.weaver")
+
+- framework: ThinkPHP
+  expression: response.headers["X-Powered-By"].icontains("ThinkPHP") || response.body.bcontains(b"/Public/static/js/")
+
+- framework: Laravel
+  expression: response.headers["Set-Cookie"].icontains("laravel_session")
+
+- application: DWR
+  expression: response.body.bcontains(b"dwr/engine.js")

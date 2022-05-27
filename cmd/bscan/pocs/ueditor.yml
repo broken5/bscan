@@ -1,0 +1,22 @@
+name: backup
+request:
+  method: GET
+  path:
+    - /ueditor/ueditor.config.js
+    - /Plugins/ueditor/ueditor.config.js
+    - /Scripts/plugins/ueditor/ueditor.config.js
+    - /static/ueditor/ueditor.config.js
+    - /Content/ueditor/ueditor.config.js
+    - /Scripts/ueditor/ueditor.config.js
+    - /public/static/js/ueditor/ueditor.config.js
+    - /static/js/ueditor/ueditor.config.js
+  headers: 
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36
+    Referer: http://www.baidu.com/
+    Accept-Language: en
+    Accept-Encoding: gzip, deflate
+    Range: bytes=0-10240
+  timeout: 3
+  allow_redirects: false
+filter_expr: 
+verify_expr: response.body.bcontains(b"UEDITOR_HOME_URL")

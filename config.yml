@@ -1,0 +1,30 @@
+threads: 50
+ports:
+- 80
+- 443
+path: ""
+request:
+  method: ""
+  path: []
+  query: ""
+  body: ""
+  headers:
+    Accept: '*/*'
+    Accept-Language: en
+    Connection: close
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+      like Gecko) Chrome/85.0.4183.121 Safari/537.36
+  timeout: 3
+  allow_redirects: true
+fingerprint_path: fingerprint.yml
+blacklist_path: blacklist.yml
+pocs_path: pocs
+target: ""
+outfile: ""
+target_mode: 1
+sylas:
+  user: root
+  passwd: "12345678"
+  host: 127.0.0.1
+  port: "3306"
+  db: sylas

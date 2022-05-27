@@ -1,0 +1,14 @@
+name: backup
+request:
+  method: GET
+  path: [/www.zip, /bin.zip, /www.rar, /bin.rar]
+  headers: 
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36
+    Referer: http://www.baidu.com/
+    Accept-Language: en
+    Accept-Encoding: gzip, deflate
+    Range: bytes=0-10240
+  timeout: 3
+  allow_redirects: false
+filter_expr: 
+verify_expr: (response.status == 200 || response.status == 206) && int(response.headers["Content-Length"]) > 0 && (response.headers["Content-Type"].icontains("application/zip") || response.headers["Content-Type"].icontains("application/octet-stream"))

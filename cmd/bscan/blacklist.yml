@@ -1,0 +1,5 @@
+- name: ERROR_CODE
+  expression: response.status == 400 || response.status > 500 || response.status == 404 
+
+- name: ANHENG_WAF
+  expression: response.body.bcontains(b"iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC")
