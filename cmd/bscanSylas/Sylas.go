@@ -2,6 +2,7 @@ package main
 
 import (
 	"bscan/config"
+	connect "bscan/database"
 	"bscan/runner/alive"
 	"time"
 )
@@ -13,6 +14,7 @@ func main() {
 	options.TargetMode = 2
 	for true {
 		alive.SwitchMode(options)
+		_ = connect.Sylas.Close()
 		time.Sleep(time.Minute)
 	}
 }
